@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:10.11
+    environment:
+      MYSQL_ROOT_PASSWORD: Password@123
+      MYSQL_DATABASE: 3mtt_capstone
+      MYSQL_USER: 3mtt_capstone_user
+      MYSQL_PASSWORD: Password@123
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  order-service:
+    build:
+      context: ./order-service
+    ports:
+      - "8001:8000"
+    depends_on:
+      - db
+
+  product-service:
+    build:
+      context: ./product-service
+    ports:
+      - "8002:8000"
+    depends_on:
+      - db
+
+  user-service:
+    build:
+      context: ./user-service
+    ports:
+      - "8003:8000"
+    depends_on:
+      - db
+
+volumes:
+  db_data:
+
