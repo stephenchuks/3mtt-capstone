@@ -1,6 +1,8 @@
 
 # Local Containerization and Microservices Simulation
 
+
+
 ## Project Overview
 This project is a simulation of a multi-service application in a local environment, demonstrating containerization and orchestration using Docker and Docker Compose as a requirement for completion of the 3mtt Nigeria Cloud Computing Track. It includes three primary services:
 1. **Product Service** - Manages products in an e-commerce setting.
